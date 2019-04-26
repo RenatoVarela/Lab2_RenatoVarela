@@ -6,6 +6,7 @@ using namespace std;
 
 int Captcha(); 
 int Captcha2();
+long factorial(int);
 int numeros_perfectos(int);
 int permutaciones();
 
@@ -17,7 +18,10 @@ int main(){
   while(exit == false){
 	int opcion = 0;
 
+	int numero = 0;
+        int perfecto = 0;
 
+	int opcion2 = 0;
 	  cout<<"Ingrese una opcion 1)Captcha "<<endl
 		  <<"2) Numeros Perfectos"<<endl
 		  <<"3)Permutaciones Posibles de una secuencia"<<endl;
@@ -27,13 +31,41 @@ int main(){
 	switch(opcion){
 
 		case 1:
-		 Captcha2();
+	 	
+		cout << "Ingrese la opcion" <<endl;
+		cin >> opcion2;
+
+		switch(opcion2){
+
+		 case 1:
+
+			 Captcha();
+
+
+			 break;
+
+
+		 case 2:
+
+			 Captcha2();
+
+			 break;
+
+	         default:
+
+			cout <<"Eso no existe" <<endl;
+			 break;
+
+
+		}
+
+
+	
 
 		break;
 
 		case 2:
-		int numero = 0;
-		int perfecto = 0;
+		
 	        
 
 		cout<<"INgrese un numero para ver si este es perfecto"<<endl;
@@ -69,6 +101,16 @@ int main(){
 		 }	
 
 		break;
+
+
+
+	 case 3:
+                
+                permutaciones();
+
+
+                break;
+
 
 
 	
@@ -107,7 +149,7 @@ int Captcha(){
 	cout<<"Ingrese la cadena de numeros" <<endl;
 	cin >> cadena;
 
-	while(cadena%2 != 0){
+	while(cadena.length()%2 != 0){
                 cout<<"Ingrese la cadena de numeros" <<endl;
                 cin >> cadena;
 
@@ -179,7 +221,7 @@ int Captcha2(){
         cout<<"Ingrese la cadena de numeros" <<endl;
         cin >> cadena;
 
-	while(cadena%2 != 0){
+	while(cadena.length()%2 != 0){
 		cout<<"Ingrese la cadena de numeros" <<endl;
         	cin >> cadena;
 
@@ -227,7 +269,7 @@ int Captcha2(){
 
         }
 
-        cout << contador_repetidos <<endl;
+        cout << contador_repetidos*2 <<endl;
 
 
 
@@ -273,7 +315,7 @@ return perfecto;
 
 
 
-/*
+
 
 int permutaciones(){
      string cadena = "";
@@ -281,11 +323,36 @@ int permutaciones(){
      
 
      cout<<"INgrese los caracteres" << endl;
-     cin >> cadena;
+     cin >> cadena
+	     ;
 
-     for(int i = 1; i <= factorial(cadena.length());i++ ){
 
-	     
+  
+int c = 0;
+
+     for(int i = 0; i <= factorial(cadena.length());i++ ){
+
+	
+
+
+		for(int j = 0; j< cadena.length(); j++){
+
+		  if((j+c) >= cadena.length()-1){
+				resultado += cadena[c-j];
+
+			}else{
+
+			resultado += cadena[j+c];
+		
+			}
+
+
+
+		}	
+
+	     cout<<resultado <<endl; 
+		resultado = "";
+	     c++;
 
 
      }
@@ -299,9 +366,9 @@ return 0;
 
 }
 
-*/
 
-/*
+
+
 long factorial(int num1){
 
    long factorial; 
@@ -316,7 +383,7 @@ long factorial(int num1){
     return factorial;
 }
 
-*/
+
 
 
 
